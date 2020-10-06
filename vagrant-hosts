@@ -1,0 +1,8 @@
+# this just lets you run playbooks directly on vagrant once you bring a machine up, super useful if you have your
+# users installed with a sudoers_nopassword group in your deploy_env=vagrant
+
+# check the file with 
+#     vagrant ssh-config | grep IdentityFile
+[control]
+vagrant.control.jquery.net ansible_ssh_host=192.168.1.100 ansible_ssh_user=vagrant deploy_env=vagrant
+

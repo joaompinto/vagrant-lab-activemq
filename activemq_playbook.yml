@@ -1,0 +1,11 @@
+---
+- hosts: control
+  become: yes
+  roles:
+    - ansible-java
+    - role: ansible-role-activemq
+      activemq_install_dir: /opt
+      activemq_instance_name: am1
+      activemq_admin_user: admin
+      activemq_admin_password: password
+      activemq_authentication: []
