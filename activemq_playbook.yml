@@ -1,5 +1,5 @@
 ---
-- hosts: control
+- hosts: activemq
   become: yes
   roles:
     - ansible-java

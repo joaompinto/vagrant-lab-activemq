@@ -16,25 +16,25 @@ vagrant up
 ```
 Test ansible:
 ```
-ansible control -m ping -i vagrant-hosts
+ansible activemq -m ping -i vagrant-hosts
 ```
 
 # Deploy ActiveMQ
 ```sh
+
+# Get the roles
 git clone https://github.com/shelleg/ansible-role-activemq roles/ansible-role-activemq
 git clone https://github.com/abessifi/ansible-java roles/ansible-java
-cat << _EOF_ > activemq_playbook.yml 
----
-- hosts: control
-  sudo: yes
-  become: yes
-  roles:
-    - ansible-java
-    - ansible-role-activemq
-_EOF_
 
-ansible-playbook -i vagrant-hosts activemq_playbook.yml 
+# Run the playbook
+ansible-playbook -i vagrant-hosts activemq_playbook.yml
 
+# Check ActiveMQ should be running in the VM
+vagrant ssh -- 'ps -ef| grep java'
+
+# Teard down
+rm -rf roles/
+vagrant destroy -f
 ```
 
 # Credits

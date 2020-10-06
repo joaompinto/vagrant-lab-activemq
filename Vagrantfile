@@ -17,10 +17,6 @@ Vagrant.configure(2) do |config|
       # Debian 8 (jessie), currently the default case
       vm_config.vm.box                   = "centos/7"
 
-
-      # NOTE right place to store the project files? Overwrite /etc/puppet?
-      vm_config.vm.synced_folder "./", "/vagrant"
-
       # assign an ip address in the hosts network
       vm_config.vm.network "private_network", ip: settings[:ip]
 
